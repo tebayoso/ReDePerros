@@ -1,0 +1,16 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><%= @title %>
+        </h3>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Projects Row -->
+<div class="row">
+  <% @advertises.each do |ad| %>
+    <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+  <% end %>
+</div>
+<!-- /.row -->

@@ -1,0 +1,78 @@
+<%= form_for(@advertise, :html => { :multipart => true }) do |f| %>
+  <% if @advertise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@advertise.errors.count, "error") %> prohibited this advertise from being saved:</h2>
+
+      <ul>
+      <% @advertise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field box">
+    <%= f.radio_button(:status, "perdido") %>
+    <%= label_tag(:status, "He perdido un perro") %>
+    <%= f.radio_button(:status, "encontrado") %>
+    <%= label_tag(:status, "He encontrado un perro") %>
+    <%= f.radio_button(:status, "transito") %>
+    <%= label_tag(:status, "El perro necesita transito") %>
+    <%= f.radio_button(:status, "adopcion") %>
+    <%= label_tag(:status, "El perro es para adoptar") %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :color1 %><br>
+    <%= f.text_field :color1 %>
+  </div>
+  <div class="field">
+    <%= f.label :color2 %><br>
+    <%= f.text_field :color2 %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br>
+    <%= f.text_field :race %>
+  </div>
+  <div class="field">
+    <%= f.label :street1 %><br>
+    <%= f.text_field :street1 %>
+  </div>
+  <div class="field">
+    <%= f.label :street2 %><br>
+    <%= f.text_field :street2 %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :when %><br>
+    <%= f.datetime_select :when %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

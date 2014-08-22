@@ -1,0 +1,18 @@
+<div class="col-sm-6 col-md-3">
+  <div class="thumbnail">
+    <%= image_tag advertise.image.url %>
+    <div class="caption">
+      <h3><%= advertise.title %></h3>
+      <p><%= advertise.race %></p>
+      <p><%= advertise.description %></p>
+      <%= advertise.name if advertise.name %>
+      <p><%= advertise.street1 %> con <%= advertise.street2 %></p>
+      <p><%= advertise.color1 %><%= " y #{advertise.color2}" %></p>
+      <p><%= advertise.when.strftime("Dia: %m/%d/%Y Hora: %I:%M%p") %></p>
+      <p>Tamaño: <%= advertise.size %></p>
+      <p>Edad(aprox): <%= advertise.age %></p>
+      <p><a href="#" class="btn btn-primary" role="button">Like button</a> <a href="#" class="btn btn-default" role="button">Twitter Button</a></p>
+    </div>
+  </div>
+</div>
+<!-- /.row -->

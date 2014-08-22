@@ -1,0 +1,56 @@
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Perros Perdidos
+        </h3>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Projects Row -->
+<% @lost.each do |ad| %>
+  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+<% end %>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Perros Encontrados
+        </h3    >
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Projects Row -->
+<% @found.each do |ad| %>
+  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+<% end %>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Transitos
+        </h3>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Projects Row -->
+<% @transit.each do |ad| %>
+  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+<% end %>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header">Adopciones
+        </h3>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Projects Row -->
+<% @adoption.each do |ad| %>
+  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+<% end %>

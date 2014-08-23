@@ -15,6 +15,9 @@
   <!-- Bootstrap Core CSS -->
   <%= stylesheet_link_tag "application", media: "all" %>
 
+  <!-- Bootstrap Core JS -->
+  <%= javascript_include_tag "application" %>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -24,9 +27,10 @@
 
 </head>
 <body>
-  <%= render partial: 'layouts/topbar' %>
 
   <!-- Page Content -->
+  <%= render partial: 'layouts/topbar' %>
+
   <div class="container">
 
     <%= yield %>

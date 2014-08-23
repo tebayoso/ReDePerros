@@ -4,8 +4,8 @@ class Advertise < ActiveRecord::Base
   :url => "/system/:class/:attachment/:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/:class/:attachment/:id/:style/:basename.:extension"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  validates :title, presence: true
-  validates :description, presence: true
+  
+  validates :comments, presence: true
   validates :status, presence: true
   validates :color1, presence: true
   validates :race, presence: true

@@ -1,6 +1,6 @@
 <%= form_for(@advertise, :html => { :multipart => true }) do |f| %>
   <% if @advertise.errors.any? %>
-    <div id="error_explanation">
+    <div id="bg-warning">
       <h2><%= pluralize(@advertise.errors.count, "error") %> prohibited this advertise from being saved:</h2>
 
       <ul>
@@ -11,68 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field box">
-    <%= f.radio_button(:status, "perdido") %>
-    <%= label_tag(:status, "He perdido un perro") %>
-    <%= f.radio_button(:status, "encontrado") %>
-    <%= label_tag(:status, "He encontrado un perro") %>
-    <%= f.radio_button(:status, "transito") %>
-    <%= label_tag(:status, "El perro necesita transito") %>
-    <%= f.radio_button(:status, "adopcion") %>
-    <%= label_tag(:status, "El perro es para adoptar") %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :color1 %><br>
-    <%= f.text_field :color1 %>
-  </div>
-  <div class="field">
-    <%= f.label :color2 %><br>
-    <%= f.text_field :color2 %>
-  </div>
-  <div class="field">
-    <%= f.label :race %><br>
-    <%= f.text_field :race %>
-  </div>
-  <div class="field">
-    <%= f.label :street1 %><br>
-    <%= f.text_field :street1 %>
-  </div>
-  <div class="field">
-    <%= f.label :street2 %><br>
-    <%= f.text_field :street2 %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br>
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :when %><br>
-    <%= f.datetime_select :when %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
-  <div class="field">
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="input-group">
+    <div class="field box">
+      <%= f.radio_button(:status, "perdido") %>
+      <%= label_tag(:status, "PERDIDO") %>
+      <%= f.radio_button(:status, "encontrado") %>
+      <%= label_tag(:status, "ENCONTRADO") %>
+      <%= f.radio_button(:status, "transito") %>
+      <%= label_tag(:status, "TRANSITO") %>
+      <%= f.radio_button(:status, "adopcion") %>
+      <%= label_tag(:status, "ADOPTAR") %>
+    </div>
+    <div class="field">
+      <%= f.label :comments, "Comentarios" %><br>
+      <%= f.text_area :comments, size: "10x5", class: "form-control", class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :color1, "Color principal" %><br>
+      <%= f.text_field :color1, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :color2, "Color secundario (si tiene)" %><br>
+      <%= f.text_field :color2, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :race, "Raza o Mestizo" %><br>
+      <%= f.text_field :race, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :street1, "Calle principal" %><br>
+      <%= f.text_field :street1, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :street2, "Altura de la calle" %><br>
+      <%= f.text_field :street2, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, "Nombre (si lo sabes)" %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :size, "Tamaño" %><br>
+      <%= f.text_field :size, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :when, "¿Cuando se perdio?" %><br>
+      <%= f.datetime_select :when, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.radio_button(:gender, "macho") %>
+      <%= label_tag(:gender, "Macho") %>
+      <%= f.radio_button(:gender, "hembra") %>
+      <%= label_tag(:gender, "Hembra") %>
+    </div>
+    <div class="field">
+      <%= f.label :age, "Edad aparente (si es cachorro 1)" %><br>
+      <%= f.number_field :age, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :image, "Sube una foto para que sea mas facil" %><br>
+      <%= f.file_field :image, class: "btn btn-default btn-lg" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Publicar", class: "btn btn-success btn-lg" %>
+    </div>
   </div>
 <% end %>

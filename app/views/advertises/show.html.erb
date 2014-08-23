@@ -1,69 +1,66 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @advertise.title %>
-</p>
+<h2>Confirme que los datos son correctos</h2>
+
+<h3>
+  <%= @advertise.status.capitalize %>
+</h3>
 
 <p>
-  <strong>Description:</strong>
-  <%= @advertise.description %>
+  <strong>Comentarios:</strong>
+  <%= @advertise.comments %>
 </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @advertise.status %>
-</p>
 
 <p>
-  <strong>Color1:</strong>
+  <strong>Color principal:</strong>
   <%= @advertise.color1 %>
 </p>
 
 <p>
-  <strong>Color2:</strong>
+  <strong>Otro color:</strong>
   <%= @advertise.color2 %>
 </p>
 
 <p>
-  <strong>Race:</strong>
+  <strong>Raza:</strong>
   <%= @advertise.race %>
 </p>
 
 <p>
-  <strong>Street1:</strong>
+  <strong>Calle principal:</strong>
   <%= @advertise.street1 %>
 </p>
 
 <p>
-  <strong>Street2:</strong>
+  <strong>A que altura:</strong>
   <%= @advertise.street2 %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @advertise.name %>
 </p>
 
 <p>
-  <strong>Size:</strong>
+  <strong>Tamaño:</strong>
   <%= @advertise.size %>
 </p>
 
 <p>
-  <strong>When:</strong>
+  <strong>Fecha y hora:</strong>
   <%= @advertise.when %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
+  <strong>Genero:</strong>
   <%= @advertise.gender %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>Edad:</strong>
   <%= @advertise.age %>
 </p>
 
-<%= link_to 'Edit', edit_advertise_path(@advertise) %> |
-<%= link_to 'Back', advertises_path %>
+<%= link_to 'Editar', edit_advertise_path(@advertise), class: "btn btn-danger btn-lg" %>
+<%= link_to 'Cofirmar', root_path, class: "btn btn-success btn-lg" %>

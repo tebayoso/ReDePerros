@@ -14,15 +14,14 @@
 ActiveRecord::Schema.define(version: 20140822142055) do
 
   create_table "advertises", force: true do |t|
-    t.string   "title"
-    t.string   "description"
+    t.string   "name"
+    t.string   "comments"
     t.string   "status"
     t.string   "color1"
     t.string   "color2"
     t.string   "race"
     t.string   "street1"
     t.string   "street2"
-    t.string   "name"
     t.string   "size"
     t.datetime "when"
     t.string   "gender"

@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140825010013) do
     t.integer  "sender_id"
     t.integer  "receiver_id"
     t.string   "text"
-    t.boolean  "readed"
+    t.boolean  "readed",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

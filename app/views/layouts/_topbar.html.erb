@@ -27,7 +27,12 @@
                     <%= link_to 'Adopciones', advertises_path(filter: 'adopcion') %>
                 </li>
                 <div class="navbar-form navbar-right">
-                    <%= link_to "Publicar anuncio", new_advertise_path, class: "btn btn-danger" %>
+                    <% if current_user %>
+                        <%= link_to "Publicar anuncio", new_advertise_path, class: "btn btn-danger" %>
+                    <% else %>
+                        <%= link_to "Entrar", new_user_session_path, class: "btn btn-danger" %>
+                        <%= link_to "Registrarse", new_user_registration_path, class: "btn btn-success" %>
+                    <% end %>
                 </div>
             </ul>
         </div>

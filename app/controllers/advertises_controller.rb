@@ -1,5 +1,5 @@
 class AdvertisesController < ApplicationController
-  before_action :set_advertise, only: [:show, :edit, :update, :destroy]
+  before_action :set_advertise, only: [:show]
 
   # GET /advertises
   # GET /advertises.json
@@ -20,17 +20,18 @@ class AdvertisesController < ApplicationController
 
   # GET /advertises/new
   def new
-    @advertise = Advertise.new
+    @advertise = current_user.advertises.new
   end
 
   # GET /advertises/1/edit
   def edit
+    @advertise = current_user.advertises.find(params[:id])
   end
 
   # POST /advertises
   # POST /advertises.json
   def create
-    @advertise = Advertise.new(advertise_params)
+    @advertise = current_user.advertises.new(advertise_params)
 
     respond_to do |format|
       if @advertise.save
@@ -60,6 +61,7 @@ class AdvertisesController < ApplicationController
   # DELETE /advertises/1
   # DELETE /advertises/1.json
   def destroy
+    @advertise = current_user.advertises.find(params[:id])
     @advertise.destroy
     respond_to do |format|
       format.html { redirect_to advertises_url, notice: 'Advertise was successfully destroyed.' }

@@ -1,66 +1,22 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-6">
+  <div class="caption">
+    <p><%= @advertise.race %></p>
+    <p><%= @advertise.comments %></p>
+    <%= @advertise.name if @advertise.name %>
+    <p><%= @advertise.street1 %> con <%= @advertise.street2 %></p>
+    <p><%= @advertise.color1 %><%= " y #{@advertise.color2}" %></p>
+    <p><%= @advertise.when.strftime("Dia: %m/%d/%Y Hora: %I:%M%p") %></p>
+    <p>Tamaño: <%= @advertise.size %></p>
+    <p>Edad(aprox): <%= @advertise.age %></p>
+    <p><a href="#" class="btn btn-primary" role="button">Like button</a> <a href="#" class="btn btn-default" role="button">Twitter Button</a></p>
+  </div>
+  <% if @advertise.user == current_user %>
+    <%= link_to 'Editar', edit_advertise_path(@advertise), class: "btn btn-danger btn-lg" %>
+    <%= link_to 'Confirmar', root_path, class: "btn btn-success btn-lg" %>
+  <% end %>
+</div>
+<div class="col-md-6">
+  <%= image_tag @advertise.image.url, alt: "#{@advertise.race}" %>
+</div>
 
-<h2>Confirme que los datos son correctos</h2>
-
-<h3>
-  <%= @advertise.status.capitalize %>
-</h3>
-
-<p>
-  <strong>Comentarios:</strong>
-  <%= @advertise.comments %>
-</p>
-
-
-<p>
-  <strong>Color principal:</strong>
-  <%= @advertise.color1 %>
-</p>
-
-<p>
-  <strong>Otro color:</strong>
-  <%= @advertise.color2 %>
-</p>
-
-<p>
-  <strong>Raza:</strong>
-  <%= @advertise.race %>
-</p>
-
-<p>
-  <strong>Calle principal:</strong>
-  <%= @advertise.street1 %>
-</p>
-
-<p>
-  <strong>A que altura:</strong>
-  <%= @advertise.street2 %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @advertise.name %>
-</p>
-
-<p>
-  <strong>Tamaño:</strong>
-  <%= @advertise.size %>
-</p>
-
-<p>
-  <strong>Fecha y hora:</strong>
-  <%= @advertise.when %>
-</p>
-
-<p>
-  <strong>Genero:</strong>
-  <%= @advertise.gender %>
-</p>
-
-<p>
-  <strong>Edad:</strong>
-  <%= @advertise.age %>
-</p>
-
-<%= link_to 'Editar', edit_advertise_path(@advertise), class: "btn btn-danger btn-lg" %>
-<%= link_to 'Confirmar', root_path, class: "btn btn-success btn-lg" %>

@@ -13,6 +13,7 @@ class CreateAdvertises < ActiveRecord::Migration
       t.datetime :when
       t.string :gender
       t.integer :age
+      t.references :user
 
       t.timestamps
     end

@@ -1,7 +1,7 @@
 <!-- Page Heading -->
 <div class="row">
-    <div class="col-lg-12">
-        <h3 class="page-header">Perros Perdidos
+    <div class="col-md-12">
+        <h3 class="page-header"><%= link_to "Perros Perdidos", advertises_path(filter: 'perdido') %>
         </h3>
     </div>
 <!-- /.row -->
@@ -14,42 +14,42 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-12">
-        <h3 class="page-header">Perros Encontrados
-        </h3    >
+    <div class="col-md-12">
+        <h3 class="page-header"><%= link_to "Perros Encontrados", advertises_path(filter: 'encontrado') %>
+        </h3>
     </div>
-<!-- /.row -->
+    <!-- /.row -->
 
-<!-- Projects Row -->
-<% @found.each do |ad| %>
-  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
-<% end %>
+    <!-- Projects Row -->
+    <% @found.each do |ad| %>
+      <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+    <% end %>
 </div>
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-12">
-        <h3 class="page-header">Transitos
+    <div class="col-md-12">
+        <h3 class="page-header"><%= link_to "Perros en Transito", advertises_path(filter: 'transito') %>
         </h3>
     </div>
-<!-- /.row -->
+    <!-- /.row -->
 
-<!-- Projects Row -->
-<% @transit.each do |ad| %>
-  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
-<% end %>
+    <!-- Projects Row -->
+    <% @transit.each do |ad| %>
+      <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+    <% end %>
 </div>
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-12">
-        <h3 class="page-header">Adopciones
+    <div class="col-md-12">
+        <h3 class="page-header"><%= link_to "Perros en Adopción", advertises_path(filter: 'adopcion') %>
         </h3>
     </div>
-<!-- /.row -->
+    <!-- /.row -->
 
-<!-- Projects Row -->
-<% @adoption.each do |ad| %>
-  <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
-<% end %>
+    <!-- Projects Row -->
+    <% @adoption.each do |ad| %>
+      <%= render partial: 'shared/advertise', locals: { advertise: ad } %>
+    <% end %>
 </div>

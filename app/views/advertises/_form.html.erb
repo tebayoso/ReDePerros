@@ -13,81 +13,95 @@
     </div>
   <% end %>
 
-  <div class="input-group">
-    <div class="row">
-        <div class="field box">
-          <%= f.radio_button(:status, "perdido") %>
-          <%= label_tag(:status, "PERDIDO") %>
-          <%= f.radio_button(:status, "encontrado") %>
-          <%= label_tag(:status, "ENCONTRADO") %>
-          <%= f.radio_button(:status, "transito") %>
-          <%= label_tag(:status, "TRÁNSITO") %>
-          <%= f.radio_button(:status, "adopcion") %>
-          <%= label_tag(:status, "ADOPCIÓN") %>
+  <div class="row">
+    <div class="input-group col-lg-12">
+      <div class="col-lg-6" style="background-color: #ccc; border-radius: 15px; padding-bottom: 10px">
+        <div class="field box col-md-12">
+            <h3>Explicanos que ha pasado</h3>
+            <h4>Todos los campos son obligatorios</h4>
+            <%= f.radio_button(:status, "perdido") %>
+            <%= label_tag(:status, "PERDIDO") %>
+            <%= f.radio_button(:status, "encontrado") %>
+            <%= label_tag(:status, "ENCONTRADO") %>
+            <%= f.radio_button(:status, "transito") %>
+            <%= label_tag(:status, "TRÁNSITO") %>
+            <%= f.radio_button(:status, "adopcion") %>
+            <%= label_tag(:status, "ADOPCIÓN") %>
         </div>
-      <div class="col-md-6">
-        <div class="field">
+        <div class="field col-md-12">
           <%= f.label :comments, "Comentarios" %><br>
-          <%= f.text_area :comments, size: "10x5", class: "form-control", class: "form-control" %>
+          <%= f.text_area :comments, size: "10x2", class: "form-control", class: "form-control" %>
         </div>
-        <div class="field">
-          <%= f.label :color1, "Color principal" %><br>
-          <%= f.text_field :color1, class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.label :color2, "Color secundario (si tiene)" %><br>
-          <%= f.text_field :color2, class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.label :street1, "Calle principal" %><br>
-          <%= f.text_field :street1, class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.label :street2, "Altura de la calle" %><br>
-          <%= f.text_field :street2, class: "form-control" %>
+        <br>
+        <div class="col-md-12">
+          <h3>¿Donde y cuando?</h3>
+          <div class="field col-md-6">
+            <%= f.label :street1, "Calle principal" %><br>
+            <%= f.text_field :street1, class: "form-control" %>
+          </div>
+          <div class="field col-md-6">
+            <%= f.label :street2, "Altura de la calle" %><br>
+            <%= f.text_field :street2, class: "form-control" %>
+          </div>
+          <div class="field col-md-6">
+            <%= f.label :when, "Fecha:" %><br>
+            <%= f.date_select :when, class: "form-control" %>
+          </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="field">
+      <div class="col-lg-6">
+        <h3>Cuentanos más sobre el perro</h3>
+        <div class="field col-md-6">
           <%= f.label :race, "Raza o Mestizo" %><br>
           <%= f.text_field :race, class: "form-control" %>
         </div>
-        <div class="field">
-          <%= f.label :name, "Nombre del perro (si lo sabes)" %><br>
+        <div class="field col-md-6">
+          <%= f.label :name, "Nombre del perro (opcional)" %><br>
           <%= f.text_field :name, class: "form-control" %>
         </div>
-        <div class="field">
-        <div class="field box">
-          <%= f.radio_button(:size, "Pequeño") %>
-          <%= label_tag(:size, "Pequeño") %>
-          <%= f.radio_button(:size, "Mediano") %>
-          <%= label_tag(:size, "Mediano") %>
-          <%= f.radio_button(:size, "Grande") %>
-          <%= label_tag(:size, "Grande") %>
+        <div class="field col-md-6">
+          <%= f.label :color1, "Color principal" %><br>
+          <%= f.text_field :color1, class: "form-control" %>
         </div>
+        <div class="field col-md-6">
+          <%= f.label :color2, "Color secundario (opcional)" %><br>
+          <%= f.text_field :color2, class: "form-control" %>
         </div>
-        <div class="field">
-          <%= f.label :when, "¿Cuando se perdio?" %><br>
-          <%= f.datetime_select :when, class: "form-control" %>
+        <div class="field col-md-6">
+          <div class="field box">
+            <h3>¿Qué tamaño tiene?</h3>
+            <%= f.radio_button(:size, "Pequeño") %>
+            <%= label_tag(:size, "Pequeño") %>
+            <%= f.radio_button(:size, "Mediano") %>
+            <%= label_tag(:size, "Mediano") %>
+            <%= f.radio_button(:size, "Grande") %>
+            <%= label_tag(:size, "Grande") %>
+          </div>
         </div>
-        <div class="field">
+        <div class="field col-md-6">
+          <h3>¿Es macho o hembra?</h3>
           <%= f.radio_button(:gender, "macho") %>
           <%= label_tag(:gender, "Macho") %>
           <%= f.radio_button(:gender, "hembra") %>
           <%= label_tag(:gender, "Hembra") %>
         </div>
-        <div class="field">
-          <%= f.label :age, "Edad aparente (si es cachorro 0) en años" %><br>
+        <div class="field col-md-8">
+          <h3>¿Que edad aparenta tener?</h3>
+          <small>Si es cachorro indicar con un 0</small>
           <%= f.number_field :age, class: "form-control" %>
-        </div>
-        <div class="field">
-          <%= f.label :image, "Sube una foto para que sea mas facil" %><br>
-          <%= f.file_field :image, class: "btn btn-default btn-lg" %>
         </div>
       </div>
     </div>
-    <div class="actions">
-      <%= f.submit "Publicar", class: "btn btn-success btn-lg" %>
+    <hr>
+    <div class="col-md-12">
+      <div class="field col-md-6">
+        <%= f.label :image, "SUBE UNA FOTOGRAFIA", class: "" %><br>
+        <%= f.file_field :image, class: "btn btn-default btn-lg" %>
+      </div>
+      <br />
+      <div class="actions col-md-6">
+        <%= link_to 'Volver', root_path, class: "btn btn-danger btn-lg" %> <%= f.submit "Publicar", class: "btn btn-success btn-lg" %>
+      </div>
     </div>
   </div>
 <% end %>

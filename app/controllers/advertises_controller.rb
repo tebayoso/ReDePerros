@@ -13,6 +13,10 @@ class AdvertisesController < ApplicationController
     end
   end
 
+  def user_advertises
+    @advertises = current_user.advertises.all
+  end
+
   # GET /advertises/1
   # GET /advertises/1.json
   def show

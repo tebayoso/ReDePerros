@@ -2,23 +2,28 @@
   <div class="thumbnail">
     <%= image_tag advertise.image.url, class: "img-responsive" %>
     <div class="caption">
-      <p><%= advertise.race %></p>
-      <p><%= advertise.comments %></p>
-      <%= advertise.name if advertise.name %>
-      <p><%= advertise.street1 %> con <%= advertise.street2 %></p>
+      <h3><%= advertise.name.capitalize if advertise.name %></h3>
+      <p><%= advertise.race.capitalize %></p>
+      <p>Se perdio en:</p>
+      <p><%= advertise.street1 %> y <%= advertise.street2 %></p>
+      <p>Tamaño: <%= advertise.size %></p>
+      <hr>
       <p><%= advertise.color1 %><%= " y #{advertise.color2}" %></p>
       <p><%= advertise.when.strftime("Dia: %m/%d/%Y Hora: %I:%M%p") %></p>
-      <p>Tamaño: <%= advertise.size %></p>
       <p>Edad(aprox): <%= advertise.age == 0 ? "Cachorro" : advertise.age %></p>
+      <p><%= advertise.comments %></p>
       <p>
         <span class='st_facebook_large' displayText='Facebook' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
         <span class='st_twitter_large' displayText='Tweet' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
         <span class='st_googleplus_large' displayText='Google +' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
         <span class='st_email_large' displayText='Email' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
       </p>
-      <% if current_user %>
-        <p><button class="btn btn-success" onclick="$('#message_form').toggle();">Enviar Mensaje al anunciante</button></p>
-        <div id="message_form" style="display: none">
+      <% if current_user == advertise.user %>
+        <%= link_to 'Editar', edit_advertise_path(advertise), class: "btn btn-success" %>
+        <%= link_to 'Borrar', advertise_path(advertise), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% elsif current_user %>
+        <p><button class="btn btn-success" onclick="$('.message_form<%= advertise.id %>').toggle();">Enviar Mensaje al anunciante</button></p>
+        <div class="message_form<%= advertise.id %>" style="display: none">
             <%= form_tag("/users/#{current_user.id}/messages", method: "post") do %>
               <div class="form-group">
                 <%= hidden_field_tag(:receiver_id, advertise.user.id) %>

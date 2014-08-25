@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Sender</th>
-      <th>Receiver</th>
       <th>Text</th>
       <th>Readed</th>
       <th colspan="3"></th>
@@ -15,7 +14,6 @@
     <% @messages.each do |message| %>
       <tr>
         <td><%= message.sender_id %></td>
-        <td><%= message.receiver_id %></td>
         <td><%= message.text %></td>
         <td><%= message.readed %></td>
         <td><%= link_to 'Show', message %></td>
@@ -25,7 +23,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>

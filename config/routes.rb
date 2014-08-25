@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  root to: 'static#home'
 
-  devise_for :users do
+  devise_for :users
+
+  resources :users do
     resources :messages
   end
-  root to: 'static#home'
   resources :advertises
 end

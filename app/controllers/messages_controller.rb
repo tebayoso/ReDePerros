@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = current_user.received_messages
   end
 
   # GET /messages/1
@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = current_user.sent_messages.new
   end
 
   # GET /messages/1/edit
@@ -69,6 +69,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:sender_id, :receiver_id, :text, :readed)
+      params.require(:message).permit(:receiver_id, :text)
     end
 end

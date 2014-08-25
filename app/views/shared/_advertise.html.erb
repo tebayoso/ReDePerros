@@ -20,7 +20,7 @@
       <div id="message_form" style="display: none">
         <%= form_tag("/users/#{current_user.id}/messages", method: "post") do %>
           <div class="form-group">
-            <%= hidden_field_tag(:receiver_id, advertise.id) %>
+            <%= hidden_field_tag(:receiver_id, advertise.user.id) %>
             <%= label_tag :text, "Escriba aqui:" %>
             <%= text_area_tag :text, nil, class: "form-control" %>
             <%= submit_tag "Enviar", class: "btn btn-default" %>

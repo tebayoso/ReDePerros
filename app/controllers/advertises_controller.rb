@@ -51,6 +51,7 @@ class AdvertisesController < ApplicationController
   # PATCH/PUT /advertises/1
   # PATCH/PUT /advertises/1.json
   def update
+    @advertise = current_user.advertises.find(params[:id])
     respond_to do |format|
       if @advertise.update(advertise_params)
         format.html { redirect_to @advertise, notice: 'Advertise was successfully updated.' }

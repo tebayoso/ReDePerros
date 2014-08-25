@@ -14,11 +14,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = current_user.sent_messages.new
-  end
-
-  # GET /messages/1/edit
-  def edit
+    @message = current_user.sent_messages.new(sender_id: current_user, receiver_id: params[:receiver_id])
   end
 
   # POST /messages
@@ -37,26 +33,12 @@ class MessagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /messages/1
-  # PATCH/PUT /messages/1.json
-  def update
-    respond_to do |format|
-      if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message }
-      else
-        format.html { render :edit }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /messages/1
   # DELETE /messages/1.json
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to user_messages_url, notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

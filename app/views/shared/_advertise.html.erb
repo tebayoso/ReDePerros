@@ -11,11 +11,12 @@
       <p>Tamaño: <%= advertise.size %></p>
       <p>Edad(aprox): <%= advertise.age == 0 ? "Cachorro" : advertise.age %></p>
       <p>
-        <a href="#" class="btn btn-default" role="button">Facebook</a> 
-        <a href="#" class="btn btn-default" role="button">Twitter</a>
-        <a href="#" class="btn btn-default" role="button">Email</a>
+        <span class='st_facebook_large' displayText='Facebook' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
+        <span class='st_twitter_large' displayText='Tweet' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
+        <span class='st_googleplus_large' displayText='Google +' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
+        <span class='st_email_large' displayText='Email' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
       </p>
-      <p><a href="#" class="btn btn-danger" role="button">Enviar Mensaje al anunciante</a></p>
+      <p><%= link_to "Enviar Mensaje al anunciante", new_user_message_path(advertise.user), class: "btn btn-success" %></p>
     </div>
   </div>
 </div>

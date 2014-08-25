@@ -39,10 +39,6 @@
           <%= f.text_field :color2, class: "form-control" %>
         </div>
         <div class="field">
-          <%= f.label :race, "Raza o Mestizo" %><br>
-          <%= f.text_field :race, class: "form-control" %>
-        </div>
-        <div class="field">
           <%= f.label :street1, "Calle principal" %><br>
           <%= f.text_field :street1, class: "form-control" %>
         </div>
@@ -52,6 +48,10 @@
         </div>
       </div>
       <div class="col-md-6">
+        <div class="field">
+          <%= f.label :race, "Raza o Mestizo" %><br>
+          <%= f.text_field :race, class: "form-control" %>
+        </div>
         <div class="field">
           <%= f.label :name, "Nombre del perro (si lo sabes)" %><br>
           <%= f.text_field :name, class: "form-control" %>

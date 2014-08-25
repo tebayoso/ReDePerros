@@ -16,7 +16,17 @@
         <span class='st_googleplus_large' displayText='Google +' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
         <span class='st_email_large' displayText='Email' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
       </p>
-      <p><%= link_to "Enviar Mensaje al anunciante", new_user_message_path(advertise.user), class: "btn btn-success" %></p>
+      <p><button class="btn btn-success" onclick="$('#message_form').toggle();">Enviar Mensaje al anunciante</button></p>
+      <div id="message_form" style="display: none">
+        <%= form_tag("/users/#{current_user.id}/messages", method: "post") do %>
+          <div class="form-group">
+            <%= hidden_field_tag(:receiver_id, advertise.id) %>
+            <%= label_tag :text, "Escriba aqui:" %>
+            <%= text_area_tag :text, nil, class: "form-control" %>
+            <%= submit_tag "Enviar", class: "btn btn-default" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

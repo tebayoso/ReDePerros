@@ -12,11 +12,6 @@ class MessagesController < ApplicationController
   def show
   end
 
-  # GET /messages/new
-  def new
-    @message = current_user.sent_messages.new(sender_id: current_user, receiver_id: params[:receiver_id])
-  end
-
   # POST /messages
   # POST /messages.json
   def create
@@ -24,7 +19,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -38,7 +33,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to user_messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to user_messages_url(current_user), notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -46,11 +41,11 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      @message = Message.find(params[:id])
+      @message = current_user.received_messages.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:receiver_id, :text)
+      params.permit(:receiver_id, :text)
     end
 end

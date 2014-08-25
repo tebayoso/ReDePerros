@@ -5,9 +5,11 @@
 
       <ul>
       <% @advertise.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <div class="alert <%= bootstrap_class_for(:alert) %> fade in">
+        <button class="close" data-dismiss="alert">×</button>
+          <%= message %>
+        </div>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
@@ -18,9 +20,9 @@
       <%= f.radio_button(:status, "encontrado") %>
       <%= label_tag(:status, "ENCONTRADO") %>
       <%= f.radio_button(:status, "transito") %>
-      <%= label_tag(:status, "TRANSITO") %>
+      <%= label_tag(:status, "TRÁNSITO") %>
       <%= f.radio_button(:status, "adopcion") %>
-      <%= label_tag(:status, "ADOPTAR") %>
+      <%= label_tag(:status, "ADOPCIÓN") %>
     </div>
     <div class="field">
       <%= f.label :comments, "Comentarios" %><br>
@@ -47,12 +49,18 @@
       <%= f.text_field :street2, class: "form-control" %>
     </div>
     <div class="field">
-      <%= f.label :name, "Nombre (si lo sabes)" %><br>
+      <%= f.label :name, "Nombre del perro (si lo sabes)" %><br>
       <%= f.text_field :name, class: "form-control" %>
     </div>
     <div class="field">
-      <%= f.label :size, "Tamaño" %><br>
-      <%= f.text_field :size, class: "form-control" %>
+    <div class="field box">
+      <%= f.radio_button(:size, "perdido") %>
+      <%= label_tag(:size, "PERDIDO") %>
+      <%= f.radio_button(:size, "encontrado") %>
+      <%= label_tag(:size, "ENCONTRADO") %>
+      <%= f.radio_button(:size, "transito") %>
+      <%= label_tag(:size, "TRÁNSITO") %>
+    </div>
     </div>
     <div class="field">
       <%= f.label :when, "¿Cuando se perdio?" %><br>
@@ -65,7 +73,7 @@
       <%= label_tag(:gender, "Hembra") %>
     </div>
     <div class="field">
-      <%= f.label :age, "Edad aparente (si es cachorro 1)" %><br>
+      <%= f.label :age, "Edad aparente (si es cachorro 0) en años" %><br>
       <%= f.number_field :age, class: "form-control" %>
     </div>
     <div class="field">

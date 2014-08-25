@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      comments: Comentarios
+      status: Seleccion
+      color1: Color
+      race: Raza
+      street1: Calle
+      street2: Altura de la calle
+      size: Tamaño
+      when: Fecha
+      gender: Sexo
+      age: Edad

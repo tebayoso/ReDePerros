@@ -1,4 +1,23 @@
 <%- if controller_name != 'sessions' %>
+<<<<<<< HEAD
+  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+=======
   <%= link_to "Entrar", new_session_path(resource_name) %><br />
 <% end -%>
 
@@ -16,10 +35,15 @@
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "No he recibido instrucciones para desbloquear mi cuenta.", new_unlock_path(resource_name) %><br />
+>>>>>>> 6cd0016394eadd82ddc88214c5f8ca56d7e2ac91
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
+<<<<<<< HEAD
+    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+=======
     <%= link_to "Registrarse con #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+>>>>>>> 6cd0016394eadd82ddc88214c5f8ca56d7e2ac91
   <% end -%>
 <% end -%>

@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+<p>Welcome <%= @email %>!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+=======
+<p>Bienvenido <%= @email %>!</p>
+
+<p>Puedes confirmar tu cuenta en este enlace:</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token) %></p>
+>>>>>>> 6cd0016394eadd82ddc88214c5f8ca56d7e2ac91

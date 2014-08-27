@@ -49,6 +49,5 @@ gem 'byebug',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  gem 'mysql2'
 end

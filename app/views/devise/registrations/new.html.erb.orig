@@ -1,0 +1,36 @@
+<<<<<<< HEAD
+<h2>Sign up</h2>
+=======
+<h2>Registrarse</h2>
+>>>>>>> 6cd0016394eadd82ddc88214c5f8ca56d7e2ac91
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+<<<<<<< HEAD
+=======
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name, autofocus: false %></div>
+
+  <div><%= f.label :phone %><br />
+  <%= f.text_field :phone, autofocus: false %></div>
+
+
+>>>>>>> 6cd0016394eadd82ddc88214c5f8ca56d7e2ac91
+  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+<<<<<<< HEAD
+  <div><%= f.submit "Sign up" %></div>
+=======
+  <div><%= f.submit "Registrarse" %></div>
+>>>>>>> 6cd0016394eadd82ddc88214c5f8ca56d7e2ac91
+<% end %>
+
+<%= render "devise/shared/links" %>

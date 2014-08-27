@@ -7,11 +7,6 @@ class MessagesController < ApplicationController
     @messages = current_user.received_messages
   end
 
-  # GET /messages/1
-  # GET /messages/1.json
-  def show
-  end
-
   # POST /messages
   # POST /messages.json
   def create
@@ -19,7 +14,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to root_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Mensaje enviado' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }

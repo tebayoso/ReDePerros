@@ -17,7 +17,7 @@
     <div class="input-group col-lg-12">
       <div class="col-lg-6" style="background-color: #ccc; border-radius: 15px; padding-bottom: 10px">
         <div class="field box col-md-12">
-            <h3>Explicanos que ha pasado</h3>
+            <h3>¿Que quieres publicar?</h3>
             <h4>Todos los campos son obligatorios</h4>
             <%= f.radio_button(:status, "perdido") %>
             <%= label_tag(:status, "PERDIDO") %>
@@ -32,27 +32,30 @@
           <%= f.label :comments, "Comentarios" %><br>
           <%= f.text_area :comments, size: "10x2", class: "form-control", class: "form-control" %>
         </div>
-        <br>
+        <br />
         <div class="col-md-12">
-          <h3>¿Donde y cuando?</h3>
           <div class="field col-md-6">
             <%= f.label :street1, "Calle principal" %><br>
             <%= f.text_field :street1, class: "form-control" %>
           </div>
           <div class="field col-md-6">
-            <%= f.label :street2, "Altura de la calle" %><br>
+            <%= f.label :street2, "Intersseción" %><br>
             <%= f.text_field :street2, class: "form-control" %>
           </div>
           <div class="field col-md-6">
             <%= f.label :when, "Fecha:" %><br>
             <%= f.date_select :when, class: "form-control" %>
           </div>
+          <div class="field col-md-6">
+            <%= f.label :city, "Ciudad:" %><br>
+            <%= f.text_field :city, class: "form-control" %>
+          </div>
         </div>
       </div>
       <div class="col-lg-6">
         <h3>Cuentanos más sobre el perro</h3>
         <div class="field col-md-6">
-          <%= f.label :race, "Raza o Mestizo" %><br>
+          <%= f.label :race, "Raza (O Mestizo)" %><br>
           <%= f.text_field :race, class: "form-control" %>
         </div>
         <div class="field col-md-6">
@@ -85,9 +88,8 @@
           <%= f.radio_button(:gender, "hembra") %>
           <%= label_tag(:gender, "Hembra") %>
         </div>
-        <div class="field col-md-8">
-          <h3>¿Que edad aparenta tener?</h3>
-          <small>Si es cachorro indicar con un 0</small>
+        <div class="field col-md-12">
+          <h3>Edad Aproximada <small>(en años, si es cachorro indicar con un 0)</small></h3>
           <%= f.number_field :age, class: "form-control" %>
         </div>
       </div>
@@ -95,8 +97,8 @@
     <hr>
     <div class="col-md-12">
       <div class="field col-md-6">
-        <%= f.label :image, "SUBE UNA FOTOGRAFIA", class: "" %><br>
-        <%= f.file_field :image, class: "btn btn-default btn-lg" %>
+        <%= f.label :image, "PUEDES AGREGAR UNA FOTOGRAFIA", class: "" %><br>
+        <%= f.file_field :image, class: "btn btn-success" %>
       </div>
       <br />
       <div class="actions col-md-6">

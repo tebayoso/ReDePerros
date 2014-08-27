@@ -39,7 +39,7 @@ class AdvertisesController < ApplicationController
 
     respond_to do |format|
       if @advertise.save
-        format.html { redirect_to @advertise, notice: 'Advertise was successfully created.' }
+        format.html { redirect_to @advertise, notice: 'Tu anuncio se creo con éxito.' }
         format.json { render :show, status: :created, location: @advertise }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class AdvertisesController < ApplicationController
     @advertise = current_user.advertises.find(params[:id])
     respond_to do |format|
       if @advertise.update(advertise_params)
-        format.html { redirect_to @advertise, notice: 'Advertise was successfully updated.' }
+        format.html { redirect_to @advertise, notice: 'Tu anuncio se actualizo con éxito.' }
         format.json { render :show, status: :ok, location: @advertise }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class AdvertisesController < ApplicationController
     @advertise = current_user.advertises.find(params[:id])
     @advertise.destroy
     respond_to do |format|
-      format.html { redirect_to advertises_url, notice: 'Advertise was successfully destroyed.' }
+      format.html { redirect_to advertises_url, notice: 'Tu anuncio se ha borrado.' }
       format.json { head :no_content }
     end
   end
@@ -82,6 +82,6 @@ class AdvertisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advertise_params
-      params.require(:advertise).permit(:comments, :status, :color1, :color2, :race, :street1, :street2, :name, :size, :when, :gender, :age, :image)
+      params.require(:advertise).permit(:city, :comments, :status, :color1, :color2, :race, :street1, :street2, :name, :size, :when, :gender, :age, :image)
     end
 end

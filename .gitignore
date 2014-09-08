@@ -15,6 +15,5 @@
 /log/*.log
 /tmp
 /public/system/*
-/public/assets/*
-/config/secrets.yml
 /config/initializers/devise.rb
+/config/secrets.yml

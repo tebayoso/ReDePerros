@@ -29,5 +29,6 @@ gem 'byebug',        group: :development
 # gem 'unicorn'
 
 group :production do
-  gem 'mysql2'
+  gem 'pg'
+  gem 'rails_12factor'
 end

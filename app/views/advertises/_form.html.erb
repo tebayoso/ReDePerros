@@ -92,7 +92,7 @@
         <div class="field col-md-8">
           <h3>¿Que edad aparenta tener?</h3>
           <small>Si es cachorro indicar con un 0</small>
-          <%= f.number_field :age, class: "form-control" %>
+          <%= f.number_field :age, class: "form-control", min: 0 %>
         </div>
       </div>
     </div>

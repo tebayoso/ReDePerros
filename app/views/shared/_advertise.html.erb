@@ -4,20 +4,17 @@
     <div class="caption">
       <h3><%= advertise.name.capitalize if advertise.name %></h3>
       <p><%= advertise.race.capitalize %></p>
-      <p>Se perdio en:</p>
-      <p><%= advertise.street1 %> y <%= advertise.street2 %></p>
+      <% if ["perdido", "encontrado"].include?(advertise.status) %>
+        <p>Se perdio en:</p>
+        <p><%= advertise.street1 %> y <%= advertise.street2 %></p>
+      <% end %>
       <p>Tamaño: <%= advertise.size %></p>
       <hr>
       <p><%= advertise.color1 %><%= " y #{advertise.color2}" %></p>
       <p><%= advertise.when.strftime("Dia: %m/%d/%Y Hora: %I:%M%p") %></p>
       <p>Edad(aprox): <%= advertise.age == 0 ? "Cachorro" : advertise.age %></p>
       <p><%= advertise.comments %></p>
-      <p>
-        <span class='st_facebook_large' displayText='Facebook' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
-        <span class='st_twitter_large' displayText='Tweet' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
-        <span class='st_googleplus_large' displayText='Google +' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
-        <span class='st_email_large' displayText='Email' st_url="<%= "http://redeperros.herokuapp.com/advertises/#{advertise.id}" %>" st_title="<%= "ReDePerros: #{advertise.status}" %>" st_image=<%= "http://redeperros.org#{advertise.image.url}" %> st_summary="<%= "#{advertise.comments}" %>"></span>
-      </p>
+      <%= render partial: 'shared/sharetis', locals: { advertise: advertise } %>
       <% if current_user == advertise.user %>
         <%= link_to 'Editar', edit_advertise_path(advertise), class: "btn btn-success" %>
         <%= link_to 'Borrar', advertise_path(advertise), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>

@@ -9,7 +9,8 @@
     <p><%= @advertise.when.strftime("Dia: %m/%d/%Y Hora: %I:%M%p") %></p>
     <p>Tamaño: <%= @advertise.size %></p>
     <p>Edad(aprox): <%= @advertise.age %></p>
-    <p><a href="#" class="btn btn-primary" role="button">Like button</a> <a href="#" class="btn btn-default" role="button">Twitter Button</a></p>
+    <h3>¡Compartirlo ahora!</h3>
+    <%= render partial: 'shared/sharetis', locals: { advertise: @advertise } %>
   </div>
   <% if @advertise.user == current_user %>
     <%= link_to 'Editar', edit_advertise_path(@advertise), class: "btn btn-danger btn-lg" %>

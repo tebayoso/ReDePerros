@@ -79,4 +79,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'www.redeperros.com' }
+
+  config.action_mailer.smtp_settings = {
+    address:    "smtp.mandrillapp.com",
+    port:       587,
+    enable_starttls_auto: true,
+    user_name:  ENV['MANDRILL_KEY'],
+    password:   ENV['MANDRILL_SECRET']
+  }
 end

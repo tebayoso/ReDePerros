@@ -6,8 +6,8 @@ class Advertise < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :user
-  
-  validates :comments, presence: true
+
+  validates :comments, presence: true, length: { minimum: 50 }
   validates :status, presence: true
   validates :color1, presence: true
   validates :race, presence: true
@@ -17,4 +17,5 @@ class Advertise < ActiveRecord::Base
   validates :when, presence: true
   validates :gender, presence: true
   validates :age, presence: true
+  validates :city, presence: true
 end

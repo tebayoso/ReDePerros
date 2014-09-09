@@ -6,12 +6,14 @@
       <p><%= advertise.race.capitalize %></p>
       <% if ["perdido", "encontrado"].include?(advertise.status) %>
         <p>Se perdio en:</p>
+        <p><%= advertise.city %>
         <p><%= advertise.street1 %> y <%= advertise.street2 %></p>
       <% end %>
+      <hr>
       <p>Tamaño: <%= advertise.size %></p>
       <hr>
       <p><%= advertise.color1 %><%= " y #{advertise.color2}" %></p>
-      <p><%= advertise.when.strftime("Dia: %m/%d/%Y Hora: %I:%M%p") %></p>
+      <p><%= advertise.when.strftime("Dia: %m/%d/%Y") %></p>
       <p>Edad(aprox): <%= advertise.age == 0 ? "Cachorro" : advertise.age %></p>
       <p><%= advertise.comments %></p>
       <%= render partial: 'shared/sharetis', locals: { advertise: advertise } %>

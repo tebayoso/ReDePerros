@@ -4,9 +4,9 @@
     <div class="caption">
       <h3><%= advertise.name.capitalize if advertise.name %></h3>
       <p><%= advertise.race.capitalize %></p>
+      <p><%= advertise.city %></p>
       <% if ["perdido", "encontrado"].include?(advertise.status) %>
         <p>Se perdio en:</p>
-        <p><%= advertise.city %></p>
         <p><%= advertise.street1 %> y <%= advertise.street2 %></p>
       <% end %>
       <hr>

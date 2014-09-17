@@ -7,7 +7,7 @@ class Advertise < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :comments, presence: true, length: { minimum: 50, maximum: 80 }
+  validates :comments, presence: true, length: { minimum: 20 }
   validates :status, presence: true
   validates :color1, presence: true, length: { maximum: 25 }
   validates :race, presence: true, length: { maximum: 25 }

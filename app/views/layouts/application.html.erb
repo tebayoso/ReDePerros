@@ -8,6 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Una red para los perros perdidos, encontrados, en tránsito o adopción">
   <meta name="author" content="ReDePerros">
+  <meta property="og:image" content="http://redeperros.com/logo.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="538">
+  <meta property="og:image:height" content="960">
 
   <title>ReDePerros</title>
 
@@ -34,7 +38,7 @@
   <%= render partial: 'layouts/topbar' %>
 
   <div class="container">
-    <%= render partial: "shared/flash_messages", flash: flash %> 
+    <%= render partial: "shared/flash_messages", flash: flash %>
 
     <%= yield %>
 
